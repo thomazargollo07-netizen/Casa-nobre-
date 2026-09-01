@@ -1,426 +1,1171 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+```css
+/* ========================================
+   CASA NOBRE
+   ESTILO PRINCIPAL
+======================================== */
+
+:root {
+  --creme: #f5f0e7;
+  --creme-escuro: #e9dfd0;
+  --verde: #4f5b45;
+  --verde-escuro: #394333;
+  --terracota: #a75d45;
+  --vinho: #683c35;
+  --marrom: #302821;
+  --marrom-claro: #74675b;
+  --branco: #fffdf9;
+
+  --fonte-titulo: "Cormorant Garamond", Georgia, serif;
+  --fonte-texto: "Montserrat", Arial, sans-serif;
+
+  --sombra: 0 20px 50px rgba(48, 40, 33, 0.10);
+}
+
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--creme);
+  color: var(--marrom);
+  font-family: var(--fonte-texto);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: var(--verde);
+  color: white;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.cabecalho {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 26px 6vw;
+
+  color: white;
+
+  transition:
+    background 0.4s ease,
+    padding 0.4s ease,
+    color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.cabecalho.scrolled {
+  background: rgba(245, 240, 231, 0.96);
+  color: var(--marrom);
+  padding-top: 17px;
+  padding-bottom: 17px;
+  box-shadow: 0 5px 30px rgba(48, 40, 33, 0.08);
+  backdrop-filter: blur(15px);
+}
 
-    <title>Casa Nobre | Restaurante Italiano</title>
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.8;
+  letter-spacing: 4px;
+}
 
-    <meta 
-        name="description" 
-        content="Casa Nobre — uma experiência italiana no coração do Leblon."
-    >
+.logo span {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 5px;
+}
 
-    <link rel="stylesheet" href="style.css">
-</head>
+.logo strong {
+  font-family: var(--fonte-titulo);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
 
-<body>
+.menu {
+  display: flex;
+  gap: 34px;
+}
 
-    <!-- CABEÇALHO -->
-    <header class="cabecalho">
+.menu a {
+  position: relative;
 
-        <a href="#" class="logo">
-            CASA NOBRE
-        </a>
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
 
-        <nav class="menu">
-            <a href="#historia">Nossa história</a>
-            <a href="#cardapio">Cardápio</a>
-            <a href="#galeria">Galeria</a>
-            <a href="#reserva">Reservar</a>
-        </nav>
+.menu a::after {
+  content: "";
 
-        <a href="#reserva" class="botao-menu">
-            Reservar mesa
-        </a>
+  position: absolute;
+  left: 0;
+  bottom: -7px;
 
-    </header>
+  width: 0;
+  height: 1px;
+
+  background: currentColor;
+
+  transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
 
+.botao-menu {
+  border: 1px solid currentColor;
+
+  padding: 12px 20px;
 
-    <!-- HERO -->
-    <main>
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.botao-menu:hover {
+  background: var(--marrom);
+  color: var(--creme);
+}
 
-        <section class="hero">
 
-            <div class="hero-conteudo">
+/* ========================================
+   HERO
+======================================== */
 
-                <p class="subtitulo">
-                    RISTORANTE ITALIANO · LEBLON · RIO DE JANEIRO
-                </p>
+.hero {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 130px 8vw;
+
+  background-image:
+    url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=90");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30, 25, 20, 0.82) 0%,
+      rgba(30, 25, 20, 0.56) 48%,
+      rgba(30, 25, 20, 0.18) 100%
+    );
+}
+
+.hero-conteudo {
+  position: relative;
+  z-index: 2;
+
+  max-width: 780px;
+
+  animation: entrada 1.1s ease both;
+}
+
+.subtitulo,
+.eyebrow {
+  margin-bottom: 18px;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin-bottom: 25px;
+
+  font-family: var(--fonte-titulo);
+  font-size: clamp(55px, 7vw, 100px);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -2px;
+}
+
+.hero h1 em,
+h2 em {
+  color: #d8a98c;
+  font-style: italic;
+}
+
+.descricao {
+  max-width: 500px;
+
+  margin-bottom: 36px;
+
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+.hero-botoes {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.botao-principal,
+.botao-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+
+  padding: 0 27px;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.botao-principal {
+  background: var(--creme);
+  color: var(--marrom);
+}
+
+.botao-secundario {
+  border: 1px solid rgba(255,255,255,0.65);
+  color: white;
+}
+
+.botao-principal:hover,
+.botao-secundario:hover {
+  transform: translateY(-3px);
+}
+
+.botao-principal:hover {
+  background: white;
+}
+
+.botao-secundario:hover {
+  background: white;
+  color: var(--marrom);
+}
+
+.hero-indicador {
+  position: absolute;
+  z-index: 2;
+
+  right: 8vw;
+  bottom: 45px;
 
-                <h1>
-                    Uma experiência italiana
-                    <span>no coração do Leblon.</span>
-                </h1>
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
-                <p class="descricao">
-                    Sabores autênticos, ingredientes selecionados
-                    e momentos feitos para serem lembrados.
-                </p>
+  font-size: 9px;
+  letter-spacing: 2px;
+}
 
-                <div class="hero-botoes">
+.hero-indicador span {
+  width: 45px;
+  height: 1px;
+  background: white;
+}
 
-                    <a href="#reserva" class="botao-principal">
-                        Reservar uma mesa
-                        <span>↗</span>
-                    </a>
 
-                    <a href="#cardapio" class="botao-secundario">
-                        Conhecer o cardápio
-                    </a>
+/* ========================================
+   SEÇÕES
+======================================== */
 
-                </div>
+.secao {
+  padding: 130px 8vw;
+}
+
+.historia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9vw;
 
-            </div>
+  align-items: center;
 
-            <div class="hero-indicador">
-                <span>ROLE PARA EXPLORAR</span>
-                <span>↓</span>
-            </div>
+  background: var(--creme);
+}
 
-        </section>
+.historia-imagem {
+  height: 650px;
+  overflow: hidden;
+}
 
+.historia-imagem img {
+  height: 100%;
+  object-fit: cover;
 
-        <!-- NOSSA HISTÓRIA -->
-        <section id="historia" class="historia">
+  transition: transform 1s ease;
+}
 
-            <div class="titulo-secao">
+.historia-imagem:hover img {
+  transform: scale(1.04);
+}
 
-                <span>01 — NOSSA HISTÓRIA</span>
+.historia-texto {
+  max-width: 530px;
+}
 
-                <h2>
-                    Tudo começou
-                    <em>com uma mesa.</em>
-                </h2>
+.eyebrow {
+  color: var(--terracota);
+}
 
-            </div>
+.historia h2,
+.titulo-secao h2,
+.reserva h2 {
+  margin-bottom: 25px;
 
-            <div class="historia-conteudo">
+  font-family: var(--fonte-titulo);
+  font-size: clamp(48px, 5vw, 76px);
+  font-weight: 400;
+  line-height: 0.9;
+}
 
-                <div class="historia-imagem">
-                    <img
-                        src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=85"
-                        alt="Massa italiana artesanal"
-                    >
-                </div>
+.historia h2 em,
+.titulo-secao h2 em,
+.reserva h2 em {
+  color: var(--verde);
+}
 
-                <div class="historia-texto">
+.linha {
+  width: 55px;
+  height: 1px;
 
-                    <p>
-                        Em uma pequena cozinha familiar na costa italiana,
-                        receitas passavam de geração em geração — sempre
-                        acompanhadas de longas conversas, bons vinhos e a
-                        certeza de que uma refeição poderia se transformar
-                        em memória.
-                    </p>
+  margin-bottom: 28px;
 
-                    <p>
-                        Anos depois, essa paixão atravessou o oceano e
-                        encontrou o Rio de Janeiro.
-                    </p>
+  background: var(--terracota);
+}
 
-                    <p>
-                        No coração do Leblon, nasceu a Casa Nobre:
-                        uma celebração da tradição italiana com a leveza
-                        e a energia carioca.
-                    </p>
+.historia-texto > p:not(.eyebrow) {
+  margin-bottom: 17px;
 
-                    <a href="#cardapio" class="link">
-                        Descobrir nossa cozinha →
-                    </a>
+  color: var(--marrom-claro);
 
-                </div>
+  font-size: 13px;
+  line-height: 1.9;
+}
 
-            </div>
+.assinatura {
+  display: block;
 
-        </section>
+  margin-top: 30px;
 
+  font-family: var(--fonte-titulo);
+  font-size: 28px;
+  font-style: italic;
+  color: var(--verde);
+}
 
-        <!-- CARDÁPIO -->
-        <section id="cardapio" class="cardapio">
 
-            <div class="titulo-secao">
+/* ========================================
+   CARDÁPIO
+======================================== */
 
-                <span>02 — LA CUCINA</span>
+.cardapio {
+  background: var(--branco);
+}
 
-                <h2>
-                    O sabor da
-                    <em>Itália.</em>
-                </h2>
+.titulo-secao {
+  max-width: 600px;
+  margin-bottom: 55px;
+}
 
-            </div>
+.titulo-secao > p:last-child {
+  color: var(--marrom-claro);
+  font-size: 13px;
+  line-height: 1.8;
+}
 
-            <div class="pratos">
+.menu-categorias {
+  display: flex;
+  gap: 30px;
 
-                <article class="prato">
+  margin-bottom: 35px;
 
-                    <div class="prato-imagem">
-                        <img
-                            src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1000&q=85"
-                            alt="Tagliolini al Tartufo"
-                        >
-                    </div>
+  border-bottom: 1px solid #ddd3c5;
+}
 
-                    <div class="prato-info">
+.categoria {
+  position: relative;
 
-                        <div>
-                            <span>PASTA · ESPECIALIDADE DA CASA</span>
-                            <h3>Tagliolini al Tartufo</h3>
-                        </div>
+  padding-bottom: 15px;
 
-                        <strong>R$ 96</strong>
+  color: #958a7d;
 
-                    </div>
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 
-                    <p>
-                        Massa fresca, creme de parmesão,
-                        manteiga e trufas.
-                    </p>
+  cursor: pointer;
+}
 
-                </article>
+.categoria.ativa {
+  color: var(--marrom);
+}
 
+.categoria.ativa::after {
+  content: "";
 
-                <article class="prato">
+  position: absolute;
+  left: 0;
+  bottom: -1px;
 
-                    <div class="prato-imagem">
-                        <img
-                            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1000&q=85"
-                            alt="Ravioli italiano"
-                        >
-                    </div>
+  width: 100%;
+  height: 2px;
 
-                    <div class="prato-info">
+  background: var(--terracota);
+}
 
-                        <div>
-                            <span>PASTA · ARTESANAL</span>
-                            <h3>Ravioli di Zucca</h3>
-                        </div>
+.pratos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 80px;
+}
 
-                        <strong>R$ 82</strong>
+.prato {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
 
-                    </div>
+  padding: 28px 0;
 
-                    <p>
-                        Ravioli artesanal de abóbora,
-                        manteiga de sálvia e parmesão.
-                    </p>
+  border-bottom: 1px solid #e5ddd2;
 
-                </article>
+  transition: transform 0.3s ease;
+}
 
+.prato:hover {
+  transform: translateX(6px);
+}
 
-                <article class="prato">
+.prato h3 {
+  margin-bottom: 7px;
 
-                    <div class="prato-imagem">
-                        <img
-                            src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=85"
-                            alt="Filé italiano"
-                        >
-                    </div>
+  font-family: var(--fonte-titulo);
+  font-size: 27px;
+  font-weight: 500;
+}
 
-                    <div class="prato-info">
+.prato p {
+  max-width: 400px;
 
-                        <div>
-                            <span>SECONDI · CARNE</span>
-                            <h3>Filetto alla Marsala</h3>
-                        </div>
+  color: var(--marrom-claro);
 
-                        <strong>R$ 118</strong>
+  font-size: 11px;
+  line-height: 1.7;
+}
 
-                    </div>
+.prato strong {
+  flex-shrink: 0;
 
-                    <p>
-                        Filé mignon, molho de Marsala,
-                        purê de batatas e legumes.
-                    </p>
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  font-weight: 500;
+}
 
-                </article>
+.prato.destaque {
+  position: relative;
+}
 
-            </div>
+.tag {
+  display: inline-block;
 
-            <a href="#reserva" class="botao-principal botao-cardapio">
-                Ver experiência completa
-                <span>↗</span>
-            </a>
+  margin-bottom: 5px;
 
-        </section>
+  color: var(--terracota);
 
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
 
-        <!-- FRASE DE IMPACTO -->
-        <section class="frase">
 
-            <p>
-                LA DOLCE VITA
-            </p>
+/* ========================================
+   FRASE
+======================================== */
 
-            <h2>
-                Uma mesa.
-                Uma história.
-                <em>Um momento.</em>
-            </h2>
+.frase {
+  min-height: 600px;
 
-        </section>
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  padding: 100px 8vw;
 
-        <!-- GALERIA -->
-        <section id="galeria" class="galeria">
+  text-align: center;
+  color: white;
 
-            <div class="titulo-secao">
+  background:
+    linear-gradient(rgba(58, 67, 51, 0.84), rgba(58, 67, 51, 0.84)),
+    url("https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1800&q=85");
 
-                <span>03 — GALLERIA</span>
+  background-size: cover;
+  background-position: center;
+}
 
-                <h2>
-                    Uma experiência
-                    <em>para todos os sentidos.</em>
-                </h2>
+.frase-conteudo span {
+  font-size: 9px;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
 
-            </div>
+.frase h2 {
+  margin: 20px 0;
 
-            <div class="galeria-grid">
+  font-family: var(--fonte-titulo);
+  font-size: clamp(52px, 7vw, 92px);
+  font-weight: 400;
+  line-height: 0.9;
+}
 
-                <img
-                    src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1000&q=85"
-                    alt="Interior elegante do restaurante"
-                >
+.frase h2 em {
+  color: #d9c4a7;
+}
 
-                <img
-                    src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=85"
-                    alt="Mesa de restaurante italiano"
-                >
+.frase p {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
 
-                <img
-                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=85"
-                    alt="Ambiente do restaurante"
-                >
 
-            </div>
+/* ========================================
+   GALERIA
+======================================== */
 
-        </section>
+.galeria {
+  background: var(--creme);
+}
 
+.central {
+  margin-left: auto;
+  margin-right: auto;
 
-        <!-- RESERVA -->
-        <section id="reserva" class="reserva">
+  text-align: center;
+}
 
-            <div class="reserva-intro">
+.central > p:last-child {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-                <span>04 — PRENOTA</span>
+.galeria-grid {
+  display: grid;
 
-                <h2>
-                    Sua mesa
-                    <em>está esperando.</em>
-                </h2>
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: 300px 300px;
 
-                <p>
-                    Escolha seu momento. Nós cuidamos do resto.
-                </p>
+  gap: 15px;
+}
 
-            </div>
+.foto {
+  overflow: hidden;
+}
 
+.foto img {
+  height: 100%;
+  object-fit: cover;
 
-            <form class="formulario">
+  transition: transform 0.8s ease;
+}
 
-                <div class="campo">
-                    <label for="nome">Seu nome</label>
-                    <input
-                        type="text"
-                        id="nome"
-                        placeholder="Digite seu nome"
-                        required
-                    >
-                </div>
+.foto:hover img {
+  transform: scale(1.06);
+}
 
-                <div class="campo">
-                    <label for="telefone">WhatsApp</label>
-                    <input
-                        type="tel"
-                        id="telefone"
-                        placeholder="(21) 99999-9999"
-                        required
-                    >
-                </div>
+.foto-grande {
+  grid-row: span 2;
+}
 
-                <div class="campo">
-                    <label for="pessoas">Número de pessoas</label>
-                    <select id="pessoas">
 
-                        <option>2 pessoas</option>
-                        <option>3 pessoas</option>
-                        <option>4 pessoas</option>
-                        <option>5 pessoas</option>
-                        <option>6 pessoas</option>
-                        <option>7+ pessoas</option>
+/* ========================================
+   RESERVA
+======================================== */
 
-                    </select>
-                </div>
+.reserva {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 10vw;
 
-                <div class="campo">
-                    <label for="data">Data</label>
-                    <input
-                        type="date"
-                        id="data"
-                        required
-                    >
-                </div>
+  background: var(--verde-escuro);
+  color: white;
+}
 
-                <div class="campo">
-                    <label for="horario">Horário</label>
-                    <select id="horario">
+.reserva h2 em {
+  color: #d9b296;
+}
 
-                        <option>19:00</option>
-                        <option>19:30</option>
-                        <option>20:00</option>
-                        <option>20:30</option>
-                        <option>21:00</option>
-                        <option>21:30</option>
-                        <option>22:00</option>
+.reserva-intro > p:not(.eyebrow) {
+  max-width: 430px;
 
-                    </select>
-                </div>
+  color: rgba(255,255,255,0.65);
 
-                <div class="campo campo-grande">
-                    <label for="observacoes">Observações</label>
+  font-size: 13px;
+  line-height: 1.9;
+}
 
-                    <textarea
-                        id="observacoes"
-                        placeholder="Alguma ocasião especial ou pedido?"
-                    ></textarea>
+.informacoes {
+  margin-top: 50px;
+}
 
-                </div>
+.informacoes > div {
+  margin-bottom: 24px;
+}
 
-                <button type="submit" class="botao-reserva">
-                    Solicitar reserva
-                    <span>↗</span>
-                </button>
+.informacoes span {
+  color: #c8a98f;
 
-            </form>
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
 
-        </section>
+.informacoes p {
+  margin-top: 7px;
 
-    </main>
+  color: rgba(255,255,255,0.72);
 
+  font-size: 11px;
+  line-height: 1.7;
+}
 
-    <!-- RODAPÉ -->
-    <footer>
+.formulario {
+  padding: 45px;
 
-        <div class="footer-logo">
-            CASA NOBRE
-        </div>
+  background: var(--creme);
+  color: var(--marrom);
 
-        <div>
-            Leblon · Rio de Janeiro
-        </div>
+  box-shadow: var(--sombra);
+}
 
-        <div>
-            @casanobre.leblon
-        </div>
+.campo {
+  margin-bottom: 22px;
+}
 
-        <div>
-            © 2026 Casa Nobre
-        </div>
+.campo label {
+  display: block;
 
-    </footer>
+  margin-bottom: 8px;
 
+  color: var(--marrom-claro);
 
-    <script src="script.js"></script>
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
 
-</body>
-</html>
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+
+  padding: 14px 0;
+
+  border: none;
+  border-bottom: 1px solid #cfc4b5;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--marrom);
+
+  font-size: 12px;
+
+  transition: border-color 0.3s ease;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: var(--verde);
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 75px;
+}
+
+.form-linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.botao-reserva {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 10px;
+  padding: 17px 20px;
+
+  border: none;
+
+  background: var(--verde);
+  color: white;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: background 0.3s ease;
+}
+
+.botao-reserva:hover {
+  background: var(--terracota);
+}
+
+.botao-reserva span {
+  font-size: 18px;
+}
+
+.aviso-formulario {
+  margin-top: 14px;
+
+  text-align: center;
+
+  color: #93877a;
+
+  font-size: 8px;
+}
+
+
+/* ========================================
+   TOAST
+======================================== */
+
+.toast {
+  position: fixed;
+
+  right: 25px;
+  bottom: 25px;
+
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  min-width: 270px;
+
+  padding: 18px 20px;
+
+  background: var(--verde-escuro);
+  color: white;
+
+  box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+
+  transform: translateY(150%);
+  opacity: 0;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.toast.mostrar {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast strong {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+}
+
+.toast span {
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  opacity: 0.75;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.rodape {
+  padding: 65px 8vw 25px;
+
+  background: #29241f;
+  color: white;
+}
+
+.rodape-topo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  align-items: center;
+
+  padding-bottom: 55px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.rodape-logo {
+  display: flex;
+  flex-direction: column;
+
+  line-height: 0.8;
+}
+
+.rodape-logo span {
+  font-size: 9px;
+  letter-spacing: 5px;
+}
+
+.rodape-logo strong {
+  font-family: var(--fonte-titulo);
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.rodape-topo > p {
+  color: rgba(255,255,255,0.5);
+
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.voltar-topo {
+  justify-self: end;
+
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  opacity: 0.65;
+
+  transition: opacity 0.3s ease;
+}
+
+.voltar-topo:hover {
+  opacity: 1;
+}
+
+.rodape-bottom {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 25px;
+
+  color: rgba(255,255,255,0.35);
+
+  font-size: 8px;
+  letter-spacing: 0.5px;
+}
+
+
+/* ========================================
+   ANIMAÇÕES
+======================================== */
+
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.revelar {
+  opacity: 0;
+  transform: translateY(35px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.revelar.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ========================================
+   RESPONSIVO
+======================================== */
+
+@media (max-width: 900px) {
+
+  .menu {
+    display: none;
+  }
+
+  .cabecalho {
+    padding: 20px 6vw;
+  }
+
+  .hero {
+    padding: 120px 7vw 100px;
+    background-attachment: scroll;
+  }
+
+  .hero h1 {
+    font-size: clamp(55px, 12vw, 80px);
+  }
+
+  .historia,
+  .reserva {
+    grid-template-columns: 1fr;
+  }
+
+  .historia {
+    gap: 55px;
+  }
+
+  .historia-imagem {
+    height: 500px;
+  }
+
+  .reserva {
+    gap: 50px;
+  }
+
+  .pratos {
+    column-gap: 35px;
+  }
+
+  .galeria-grid {
+    grid-template-rows: 260px 260px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .cabecalho {
+    padding: 17px 5vw;
+  }
+
+  .logo strong {
+    font-size: 24px;
+  }
+
+  .botao-menu {
+    padding: 10px 13px;
+    font-size: 8px;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding: 110px 6vw 80px;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(30,25,20,0.86),
+        rgba(30,25,20,0.5)
+      );
+  }
+
+  .hero h1 {
+    font-size: 58px;
+    letter-spacing: -1px;
+  }
+
+  .descricao {
+    font-size: 12px;
+  }
+
+  .hero-botoes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .botao-principal,
+  .botao-secundario {
+    width: 100%;
+  }
+
+  .hero-indicador {
+    display: none;
+  }
+
+  .secao {
+    padding: 85px 6vw;
+  }
+
+  .historia {
+    gap: 40px;
+  }
+
+  .historia-imagem {
+    height: 420px;
+  }
+
+  .historia h2,
+  .titulo-secao h2,
+  .reserva h2 {
+    font-size: 55px;
+  }
+
+  .menu-categorias {
+    gap: 18px;
+    overflow-x: auto;
+  }
+
+  .categoria {
+    flex-shrink: 0;
+  }
+
+  .pratos {
+    grid-template-columns: 1fr;
+  }
+
+  .prato h3 {
+    font-size: 25px;
+  }
+
+  .frase {
+    min-height: 500px;
+    padding: 80px 6vw;
+  }
+
+  .frase h2 {
+    font-size: 58px;
+  }
+
+  .galeria-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 230px 180px;
+  }
+
+  .foto-grande {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .reserva {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .formulario {
+    padding: 28px 22px;
+  }
+
+  .form-linha {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .rodape {
+    padding: 50px 6vw 20px;
+  }
+
+  .rodape-topo {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .voltar-topo {
+    justify-self: start;
+  }
+
+  .rodape-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .toast {
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+```
+
+                
