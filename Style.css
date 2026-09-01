@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Casa Nobre | Restaurante Italiano</title>
+
+    <meta 
+        name="description" 
+        content="Casa Nobre — uma experiência italiana no coração do Leblon."
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+
+        <a href="#" class="logo">
+            CASA NOBRE
+        </a>
+
+        <nav class="menu">
+            <a href="#historia">Nossa história</a>
+            <a href="#cardapio">Cardápio</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#reserva">Reservar</a>
+        </nav>
+
+        <a href="#reserva" class="botao-menu">
+            Reservar mesa
+        </a>
+
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-conteudo">
+
+                <p class="subtitulo">
+                    RISTORANTE ITALIANO · LEBLON · RIO DE JANEIRO
+                </p>
+
+                <h1>
+                    Uma experiência italiana
+                    <span>no coração do Leblon.</span>
+                </h1>
+
+                <p class="descricao">
+                    Sabores autênticos, ingredientes selecionados
+                    e momentos feitos para serem lembrados.
+                </p>
+
+                <div class="hero-botoes">
+
+                    <a href="#reserva" class="botao-principal">
+                        Reservar uma mesa
+                        <span>↗</span>
+                    </a>
+
+                    <a href="#cardapio" class="botao-secundario">
+                        Conhecer o cardápio
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-indicador">
+                <span>ROLE PARA EXPLORAR</span>
+                <span>↓</span>
+            </div>
+
+        </section>
+
+
+        <!-- NOSSA HISTÓRIA -->
+        <section id="historia" class="historia">
+
+            <div class="titulo-secao">
+
+                <span>01 — NOSSA HISTÓRIA</span>
+
+                <h2>
+                    Tudo começou
+                    <em>com uma mesa.</em>
+                </h2>
+
+            </div>
+
+            <div class="historia-conteudo">
+
+                <div class="historia-imagem">
+                    <img
+                        src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=85"
+                        alt="Massa italiana artesanal"
+                    >
+                </div>
+
+                <div class="historia-texto">
+
+                    <p>
+                        Em uma pequena cozinha familiar na costa italiana,
+                        receitas passavam de geração em geração — sempre
+                        acompanhadas de longas conversas, bons vinhos e a
+                        certeza de que uma refeição poderia se transformar
+                        em memória.
+                    </p>
+
+                    <p>
+                        Anos depois, essa paixão atravessou o oceano e
+                        encontrou o Rio de Janeiro.
+                    </p>
+
+                    <p>
+                        No coração do Leblon, nasceu a Casa Nobre:
+                        uma celebração da tradição italiana com a leveza
+                        e a energia carioca.
+                    </p>
+
+                    <a href="#cardapio" class="link">
+                        Descobrir nossa cozinha →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CARDÁPIO -->
+        <section id="cardapio" class="cardapio">
+
+            <div class="titulo-secao">
+
+                <span>02 — LA CUCINA</span>
+
+                <h2>
+                    O sabor da
+                    <em>Itália.</em>
+                </h2>
+
+            </div>
+
+            <div class="pratos">
+
+                <article class="prato">
+
+                    <div class="prato-imagem">
+                        <img
+                            src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1000&q=85"
+                            alt="Tagliolini al Tartufo"
+                        >
+                    </div>
+
+                    <div class="prato-info">
+
+                        <div>
+                            <span>PASTA · ESPECIALIDADE DA CASA</span>
+                            <h3>Tagliolini al Tartufo</h3>
+                        </div>
+
+                        <strong>R$ 96</strong>
+
+                    </div>
+
+                    <p>
+                        Massa fresca, creme de parmesão,
+                        manteiga e trufas.
+                    </p>
+
+                </article>
+
+
+                <article class="prato">
+
+                    <div class="prato-imagem">
+                        <img
+                            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1000&q=85"
+                            alt="Ravioli italiano"
+                        >
+                    </div>
+
+                    <div class="prato-info">
+
+                        <div>
+                            <span>PASTA · ARTESANAL</span>
+                            <h3>Ravioli di Zucca</h3>
+                        </div>
+
+                        <strong>R$ 82</strong>
+
+                    </div>
+
+                    <p>
+                        Ravioli artesanal de abóbora,
+                        manteiga de sálvia e parmesão.
+                    </p>
+
+                </article>
+
+
+                <article class="prato">
+
+                    <div class="prato-imagem">
+                        <img
+                            src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=85"
+                            alt="Filé italiano"
+                        >
+                    </div>
+
+                    <div class="prato-info">
+
+                        <div>
+                            <span>SECONDI · CARNE</span>
+                            <h3>Filetto alla Marsala</h3>
+                        </div>
+
+                        <strong>R$ 118</strong>
+
+                    </div>
+
+                    <p>
+                        Filé mignon, molho de Marsala,
+                        purê de batatas e legumes.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <a href="#reserva" class="botao-principal botao-cardapio">
+                Ver experiência completa
+                <span>↗</span>
+            </a>
+
+        </section>
+
+
+        <!-- FRASE DE IMPACTO -->
+        <section class="frase">
+
+            <p>
+                LA DOLCE VITA
+            </p>
+
+            <h2>
+                Uma mesa.
+                Uma história.
+                <em>Um momento.</em>
+            </h2>
+
+        </section>
+
+
+        <!-- GALERIA -->
+        <section id="galeria" class="galeria">
+
+            <div class="titulo-secao">
+
+                <span>03 — GALLERIA</span>
+
+                <h2>
+                    Uma experiência
+                    <em>para todos os sentidos.</em>
+                </h2>
+
+            </div>
+
+            <div class="galeria-grid">
+
+                <img
+                    src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1000&q=85"
+                    alt="Interior elegante do restaurante"
+                >
+
+                <img
+                    src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=85"
+                    alt="Mesa de restaurante italiano"
+                >
+
+                <img
+                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=85"
+                    alt="Ambiente do restaurante"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- RESERVA -->
+        <section id="reserva" class="reserva">
+
+            <div class="reserva-intro">
+
+                <span>04 — PRENOTA</span>
+
+                <h2>
+                    Sua mesa
+                    <em>está esperando.</em>
+                </h2>
+
+                <p>
+                    Escolha seu momento. Nós cuidamos do resto.
+                </p>
+
+            </div>
+
+
+            <form class="formulario">
+
+                <div class="campo">
+                    <label for="nome">Seu nome</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Digite seu nome"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="telefone">WhatsApp</label>
+                    <input
+                        type="tel"
+                        id="telefone"
+                        placeholder="(21) 99999-9999"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="pessoas">Número de pessoas</label>
+                    <select id="pessoas">
+
+                        <option>2 pessoas</option>
+                        <option>3 pessoas</option>
+                        <option>4 pessoas</option>
+                        <option>5 pessoas</option>
+                        <option>6 pessoas</option>
+                        <option>7+ pessoas</option>
+
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="data">Data</label>
+                    <input
+                        type="date"
+                        id="data"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="horario">Horário</label>
+                    <select id="horario">
+
+                        <option>19:00</option>
+                        <option>19:30</option>
+                        <option>20:00</option>
+                        <option>20:30</option>
+                        <option>21:00</option>
+                        <option>21:30</option>
+                        <option>22:00</option>
+
+                    </select>
+                </div>
+
+                <div class="campo campo-grande">
+                    <label for="observacoes">Observações</label>
+
+                    <textarea
+                        id="observacoes"
+                        placeholder="Alguma ocasião especial ou pedido?"
+                    ></textarea>
+
+                </div>
+
+                <button type="submit" class="botao-reserva">
+                    Solicitar reserva
+                    <span>↗</span>
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <div class="footer-logo">
+            CASA NOBRE
+        </div>
+
+        <div>
+            Leblon · Rio de Janeiro
+        </div>
+
+        <div>
+            @casanobre.leblon
+        </div>
+
+        <div>
+            © 2026 Casa Nobre
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
